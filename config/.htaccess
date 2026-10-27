@@ -1,0 +1,3 @@
+# Deny direct public browsing of internal configuration and log directories
+Options -Indexes
+Require all denied
