@@ -1,0 +1,3 @@
+# Deny direct HTTP access to internal PHP libraries and logs
+Options -Indexes
+Require all denied
