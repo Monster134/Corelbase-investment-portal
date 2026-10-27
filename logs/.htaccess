@@ -1,1 +1,3 @@
-
+# Deny direct HTTP access to server error logs and raw certificate storage
+Options -Indexes
+Require all denied
