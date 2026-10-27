@@ -1,1 +1,8 @@
-
+# Prevent direct execution or listing inside /certificates/ (served via api/certificate_download.php)
+Options -Indexes -ExecCGI
+<IfModule mod_php.c>
+    php_flag engine off
+</IfModule>
+<FilesMatch "\.(php\d*|phtml|phar|js|html|htm)$">
+    Require all denied
+</FilesMatch>
