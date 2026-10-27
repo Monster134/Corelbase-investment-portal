@@ -1,0 +1,20 @@
+# =============================================================================
+# CORELBASE PRIVATE LIMITED — UPLOAD DIRECTORY EXECUTION PROTECTION
+# Strictly prevents execution of PHP, scripts, or HTML inside /uploads/
+# =============================================================================
+
+Options -Indexes -ExecCGI
+AddHandler cgi-script .php .php7 .php8 .phtml .phar .pl .py .jsp .asp .htm .html .shtml .sh .cgi .js
+RemoveHandler .php .phtml .phar
+
+<IfModule mod_php.c>
+    php_flag engine off
+</IfModule>
+<IfModule mod_php8.c>
+    php_flag engine off
+</IfModule>
+
+# Block direct access to payment proof files (must be viewed via authenticated admin_api.php)
+<FilesMatch "\.(php\d*|phtml|phar|pl|py|cgi|sh|exe|bat|cmd|js|html|htm|svg|htaccess)$">
+    Require all denied
+</FilesMatch>
